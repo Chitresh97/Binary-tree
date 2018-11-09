@@ -1,4 +1,4 @@
-template<typename T
+template<typename T>
 class BinaryTreeNode{
     public:
     T data;
@@ -9,9 +9,10 @@ class BinaryTreeNode{
         left=NULL;
         right=NULL;
     }
+
     ~BinaryTreeNode(){
         delete left;
         delete right;
     }
 
-}
+};
