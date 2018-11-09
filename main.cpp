@@ -4,6 +4,37 @@
 
 using namespace std;
 
+void printLevelWise(BinaryTreeNode<int> *root) {
+
+    queue<BinaryTreeNode<int>*> pendingNodes;
+    pendingNodes.push(root);
+
+    while(pendingNodes.size()!=0){
+        BinaryTreeNode<int> * front=pendingNodes.front();
+        pendingNodes.pop();
+        cout<<front->data<<":";
+        cout<<"L:";
+        if(front->left==NULL)
+            cout<<-1;
+        else{
+            cout<<front->left->data;
+            pendingNodes.push(front->left);
+        }
+
+
+        cout<<",R:";
+        if(front->right==NULL)
+            cout<<-1;
+        else{
+            cout<<front->right->data;
+            pendingNodes.push(front->right);
+        }
+        cout<<endl;
+
+    }
+}
+
+
 BinaryTreeNode<int>* takeInputLevelWise(){
     int rootData;
     cout<<"Enter root data:"<<endl;
