@@ -4,6 +4,20 @@
 
 using namespace std;
 
+bool isNodePresent(BinaryTreeNode<int>* root, int x) {
+  bool v=false;
+  if(root->data==x)
+    return true;
+  else{
+    if(root->left!=NULL)
+    	if(isNodePresent(root->left,x))
+      		v=true;
+    if(root->right!=NULL)
+    	if(isNodePresent(root->right,x))
+      		v=true;
+    return v;
+  }
+
 void printLevelWise(BinaryTreeNode<int> *root) {
 
     queue<BinaryTreeNode<int>*> pendingNodes;
