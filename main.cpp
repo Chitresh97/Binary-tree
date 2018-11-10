@@ -5,6 +5,13 @@
 
 using namespace std;
 
+int sumOfAllNodes(BinaryTreeNode<int>* root) {
+  if(root==NULL)
+    return 0;
+  else
+  	return root->data + sumOfAllNodes(root->left) + sumOfAllNodes(root->right);
+}
+
 void postOrder(BinaryTreeNode<int> *root) {
     if(root==NULL)
     	return;
