@@ -5,6 +5,14 @@
 
 using namespace std;
 
+void preOrder(BinaryTreeNode<int> *root) {
+  if(root==NULL)
+    return;
+  cout<<root->data<<" ";
+  preOrder(root->left);
+  preOrder(root->right);
+}
+
 void mirrorBinaryTree(BinaryTreeNode<int>* root) {
   if(root==NULL)
     return;
