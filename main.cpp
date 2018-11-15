@@ -5,6 +5,16 @@
 
 using namespace std;
 
+bool isBalanced(BinaryTreeNode<int> *root) {
+  if(root==NULL)
+    return true;
+
+  if(abs(height(root->left)-height(root->right))<=1)
+    return(isBalanced(root->left)&&isBalanced(root->right));
+  else
+    return false;
+}
+
 int height(BinaryTreeNode<int> *root){
   if(root==NULL)
     return 0;
