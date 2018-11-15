@@ -5,6 +5,43 @@
 
 using namespace std;
 
+void printLevelATNewLine(BinaryTreeNode<int> *root){
+
+  if(root==NULL)
+    return;
+
+  queue<BinaryTreeNode<int>*> pendingNodes;
+  pendingNodes.push(root);
+  pendingNodes.push(NULL);
+
+  while(pendingNodes.size()!=0){
+    BinaryTreeNode<int> *current=pendingNodes.front();
+    pendingNodes.pop();
+
+    if(current!=NULL){
+      cout<<current->data<<" ";
+
+      if(current->left!=NULL){
+        pendingNodes.push(current->left);
+      }
+
+
+      if(current->right!=NULL){
+        pendingNodes.push(current->right);
+      }
+
+    }
+
+    else{
+
+      cout<<endl;
+
+      if(pendingNodes.size()!=0)
+      	pendingNodes.push(NULL);
+    }
+  }
+}
+
 bool isBalanced(BinaryTreeNode<int> *root) {
   if(root==NULL)
     return true;
