@@ -45,18 +45,6 @@ void mirrorBinaryTree(BinaryTreeNode<int>* root) {
 }
 
 
-int height(BinaryTreeNode<int> *root) {
-  int leftHeight=0;
-  int rightHeight=0;
-  if(root->left!=NULL){
-    leftHeight=height(root->left);
-  }
-  if(root->right!=NULL){
-    rightHeight=height(root->right);
-  }
-  return 1+max(leftHeight,rightHeight);
-}
-
 bool isNodePresent(BinaryTreeNode<int>* root, int x) {
   bool v=false;
   if(root->data==x)
